@@ -2,7 +2,9 @@
 
 tldrstory is a framework for AI-powered understanding of headlines and text summaries related to stories. tldrstory applies zero-shot labeling over the text, which allows dynamically categorizing content. This framework also builds an AI-powered index which allows similarity searching for text.
 
-![demo](demo.gif)
+<p align="center">
+    <img src="https://raw.githubusercontent.com/neuml/tldrstory/master/demo.gif"/>
+</p>
 
 Configuration options for all components shown below.
 
