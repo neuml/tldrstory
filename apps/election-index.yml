@@ -1,0 +1,60 @@
+# Application name
+name: Election 2020
+
+# Schedule indexing job to run periodically throughout the day
+schedule: "0 6,9,12,15,18,21 * * *"
+
+# API queries
+api:
+  subreddit: all
+  sort: top
+  time: day
+  queries:
+    - biden
+    - biden economy
+    - biden health care
+    - biden supreme court
+    - biden coronavirus
+    - biden crime
+    - biden foreign policy
+    - biden gun control
+    - biden racial economic inequality
+    - biden immigration
+    - biden climate change
+    - biden abortion
+    - trump
+    - trump economy
+    - trump health care
+    - trump supreme court
+    - trump coronavirus
+    - trump crime
+    - trump foreign policy
+    - trump gun control
+    - trump racial economic inequality
+    - trump immigration
+    - trump climate change
+    - trump abortion
+
+  # Ignore links from the following sites
+  ignore: [redd.it, reddit.com, youtube.com, youtu.be, imgur.com, gifs.com, imgflip.com, twitter.com, facebook.com, instagram.com, air.tv, 
+           "(gif|jpg|jpeg|png)$"]
+
+# Text labels
+labels:
+  factual:
+    select: ["Announcements, current events, fact reports"]
+    values: ["Announcements, current events, fact reports", "Op-Ed, editorial, question",
+             "Collusion, conspiracy, corruption accusations", "Hostile, partisan accusations"]
+
+  bias:
+    select: [Trump is good, conspiracy against Trump, Biden is bad]
+    values: [Biden is good, conspiracy against Biden, Biden is bad,
+             Trump is good, conspiracy against Trump, Trump is bad]
+
+# Index path
+path: /data/sources/headlines
+
+# Embeddings index configuration
+embeddings:
+  method: transformers
+  path: /data/sources/nlp/headlines-stsb

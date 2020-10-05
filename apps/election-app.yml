@@ -1,0 +1,60 @@
+# Application name
+name: Election 2020
+
+# API endpoint
+api: "http://localhost:8000"
+
+# Application layout configuration
+layout:
+  description: >
+    # Election 2020
+
+    *Disclaimer: This application is for demonstration purposes only, users should make up their own mind regarding 
+    the accuracy of the results. There will be errors based on the nuances of the English language and personal perception.
+    Sometimes there is no "correct answer".*
+       
+    This application labels Reddit posts using two categories:
+      
+      - Factual  
+      - Bias towards a candidate  
+       
+    The goal of this application is to allow categorization of headlines by topic, factuality and potential bias towards a candidate. Generally, as
+    the factual score of articles increases, the level of bias should decrease. 
+      
+    Data is pulled via the Reddit API using a series of queries for link posts. In most but not all cases, the titles of these posts are
+    headlines for articles.
+      
+    The application is backed by a zero-shot classifier, which is a classifer that uses a large general language model without training data.  
+       
+    Tech stack:
+
+      - txtai
+      - Transformers
+      - Sentence Transformers
+      - Streamlit
+      - FastAPI
+       
+    [Full source code and configuration](https://github.com/neuml/tldrstory)
+
+  queries:
+    name: Issues
+    values: [Latest, --Search--, Economy, Health Care, Supreme Court, Coronavirus, Violent Crime, Foreign Policy, Gun Control,
+             Racial Equality, Immigration, Climate Change, Abortion]
+ 
+  filters: [Factual, Bias]
+
+  chart:
+    name: Candidate Bias
+    x: Bias
+    y: Factual
+    scale: [0, 4.5, 5.0, 5.5, 10]
+    colors: ["#1976D2", "#64B5F6", "#9575CD", "#E57373", "#D32F2F"]
+
+  table:
+    Factual:
+    Bias: 
+      - [0, 3.0, Strong Biden, "color: #1E88E5; font-weight: bold"]
+      - [3.0, 4.5, Lean Biden, "color: #1E88E5"]
+      - [4.5, 5.5, Neutral, "color: #7E57C2"]
+      - [5.5, 7.0, Lean Trump, "color: #E35935"]
+      - [7.0, 10.0, Strong Trump, "color: #E35935; font-weight: bold"]
