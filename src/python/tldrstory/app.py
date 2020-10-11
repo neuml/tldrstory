@@ -23,7 +23,6 @@ class Components(object):
 
         Args:
             name: name to show in header
-            icon: icon setting
         """
 
         # Set title on page body
@@ -50,16 +49,16 @@ class Components(object):
             layout: layout configuration
 
         Returns:
-            query text
+            query text, topic flag
         """
 
-        query = None
+        query, topic = None, 1
         if "queries" in layout:
             query = st.selectbox(layout["queries"]["name"], layout["queries"]["values"])
             if query == "--Search--":
-                query = st.text_input("Search")
+                query, topic = st.text_input("Search"), None
 
-        return query
+        return query, topic
 
     @staticmethod
     def filters(layout):
@@ -199,19 +198,20 @@ class App(object):
             # Read configuration
             self.index = yaml.safe_load(f)
 
-    def query(self, query, filters):
+    def query(self, query, topic, filters):
         """
         Runs an API query.
 
         Args:
             query: query to run
+            topic: flag that signals query is a pre-defined topic (1) or ad hoc query (0 or None)
             filters: additional filters to apply
 
         Returns:
             query results
         """
 
-        params = {"q": query, "n": 100, "filters": ":".join([name.lower() for name, _ in filters])}
+        params = {"q": query, "n": 100, "topic": topic, "filters": ":".join([name.lower() for name, _ in filters])}
 
         # Encode each filter value as additional parameters
         for name, value in filters:
@@ -219,12 +219,13 @@ class App(object):
 
         return requests.get(self.index["api"] + "/search", params=params).json()
 
-    def search(self, query, filters):
+    def search(self, query, topic, filters):
         """
         Executes a search.
 
         Args:
             query: query to run
+            topic: flag that signals query is a pre-defined topic (1) or ad hoc query (0 or None)
             filters: additional filters to apply
 
         Returns:
@@ -232,7 +233,7 @@ class App(object):
         """
 
         # Run query against API
-        results = self.query(query, filters)
+        results = self.query(query, topic, filters)
 
         # Dataframe columns
         columns = ["Date", "Title", "Reference"] + [name for name, _ in filters]
@@ -259,13 +260,13 @@ class App(object):
         Components.description(layout)
 
         # Query filters
-        query = Components.query(layout)
+        query, topic = Components.query(layout)
 
         # Slider filters
         filters = Components.filters(layout)
 
         # Execute query and build dataframe
-        df = self.search(query, filters)
+        df = self.search(query, topic, filters)
 
         # Normalize slider ranges
         for name, _ in filters:
@@ -284,6 +285,9 @@ class App(object):
 def create(index):
     """
     Creates and caches an application instance.
+
+    Args:
+        index: configuration file path
 
     Returns:
         Application

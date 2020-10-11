@@ -34,15 +34,12 @@ class API(txtai.api.API):
 
             return cur.execute("SELECT id, 1.0 as score FROM articles WHERE reference like ? ORDER BY date DESC LIMIT 100", [query]).fetchall()
 
-        # Execute search and order by date desc
-        results = super().search(query, request)
-        ids = ",".join(["'" + uid + "'" for uid, _ in results])
-        ids = "(" + ids + ")"
+        elif "topic" in request.query_params and request.query_params["topic"] == "1":
+            return cur.execute("SELECT id, 1.0 as score FROM articles a WHERE " +
+                               "(SELECT value FROM labels WHERE article=a.id AND category = 'topic' AND name=?) >= 0.5 " +
+                               "ORDER BY date DESC LIMIT 100", [query]).fetchall()
 
-        cur.execute("SELECT id, date FROM articles WHERE id in %s" % ids)
-        lookup = {uid:date for uid, date in cur.fetchall()}
-
-        return sorted(results, key=lambda x: lookup[x[0]], reverse=True)
+        return super().search(query, request)
 
     def search(self, query, request):
         """
@@ -76,15 +73,10 @@ class API(txtai.api.API):
 
                 # Build slider select sql
                 for name in filters:
-                    # Lookup label select
-                    values = self.index["labels"][name]["select"]
+                    sql += ", (SELECT value FROM labels WHERE article=? AND category=? AND name=?) AS %s" % name
+                    params.extend([uid, name, name])
 
-                    fields = " OR ".join(["Name = ?"] * len(values))
-                    sql += ", (SELECT SUM(value) FROM labels WHERE Article=? AND (%s)) AS %s" % (fields, name)
-                    params.append(uid)
-                    params.extend(values)
-
-                sql += " FROM articles WHERE Id = ?"
+                sql += " FROM articles WHERE id = ?"
                 params.append(uid)
 
                 # Add slider range filters

@@ -9,24 +9,27 @@ layout:
   description: >
     # Election 2020
 
-    *Disclaimer: This application is for demonstration purposes only, users should make up their own mind regarding 
-    the accuracy of the results. There will be errors based on the nuances of the English language and personal perception.
+    *Disclaimer: This is for demonstration purposes only, users should make up their own mind regarding the accuracy of
+    the results. There will be errors based on the nuances of the English language and personal perception.
     Sometimes there is no "correct answer".*
-       
-    This application labels Reddit posts using two categories:
       
-      - Factual  
+    This application categorizes 2020 US Presidential Election Reddit post titles by topic, objectivity and potential bias
+    towards a candidate. Data is pulled via the Reddit API using a series of queries for link posts. In most but not all cases,
+    the titles of these posts are headlines for news articles.
+      
+    Reddit post titles are labeled using two categories:
+      
+      - Objectivity  
       - Bias towards a candidate  
        
-    The goal of this application is to allow categorization of headlines by topic, factuality and potential bias towards a candidate. Generally, as
-    the factual score of articles increases, the level of bias should decrease. 
-      
-    Data is pulled via the Reddit API using a series of queries for link posts. In most but not all cases, the titles of these posts are
-    headlines for articles.
-      
-    The application is backed by a zero-shot classifier, which is a classifer that uses a large general language model without training data.  
+    Generally, as the objectivity score increases, the level of bias should decrease.
        
-    Tech stack:
+    ### Tech stack
+      
+    A zero-shot classifier, backed by a large general language model with no labeled data, is used to categorize topics,
+    objectivity and potential bias. Additionally, a txtai index enables ad hoc similarity searches against the data.
+      
+    The following libraries are used:
 
       - txtai
       - Transformers
@@ -38,20 +41,20 @@ layout:
 
   queries:
     name: Issues
-    values: [Latest, --Search--, Economy, Health Care, Supreme Court, Coronavirus, Violent Crime, Foreign Policy, Gun Control,
-             Racial Equality, Immigration, Climate Change, Abortion]
+    values: [Latest, --Search--, Economy, Health Care, Supreme Court, Coronavirus, Violent Crime, Foreign Policy, Gun Policy,
+             Race Relations, Immigration, Climate Change, Abortion]
  
-  filters: [Factual, Bias]
+  filters: [Objective, Bias]
 
   chart:
     name: Candidate Bias
     x: Bias
-    y: Factual
+    y: Objective
     scale: [0, 4.5, 5.0, 5.5, 10]
     colors: ["#1976D2", "#64B5F6", "#9575CD", "#E57373", "#D32F2F"]
 
   table:
-    Factual:
+    Objective:
     Bias: 
       - [0, 3.0, Strong Biden, "color: #1E88E5; font-weight: bold"]
       - [3.0, 4.5, Lean Biden, "color: #1E88E5"]

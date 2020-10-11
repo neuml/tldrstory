@@ -41,15 +41,21 @@ api:
 
 # Text labels
 labels:
-  factual:
-    select: ["Announcements, current events, fact reports"]
-    values: ["Announcements, current events, fact reports", "Op-Ed, editorial, question",
-             "Collusion, conspiracy, corruption accusations", "Hostile, partisan accusations"]
+  objective:
+    normalize: [0.05, 0.95]
+    aggregate: ["announcement, event, report"]
+    values: ["announcement, event, report", "forecast, prediction, prophesy", vulgar commentary, angry commentary,
+             "hostile, partisan allegations", "collusion, conspiracy, corruption accusations", racist accusations,
+             Trump is bad, Biden is bad]
 
   bias:
-    select: [Trump is good, conspiracy against Trump, Biden is bad]
-    values: [Biden is good, conspiracy against Biden, Biden is bad,
-             Trump is good, conspiracy against Trump, Trump is bad]
+    aggregate: [good news about Trump, conspiracy against Trump, crazy hostility towards Trump, Biden is bad, Biden is dishonest]
+    values: [good news about Biden, conspiracy against Biden, crazy hostility towards Biden, Biden is bad, Biden is dishonest,
+             good news about Trump, conspiracy against Trump, crazy hostility towards Trump, Trump is bad, Trump is dishonest]
+
+  topic:
+    values: [Economy, Health Care, Supreme Court, Coronavirus, Violent Crime, Foreign Policy, Gun Policy,
+             Race Relations, Immigration, Climate Change, Abortion]
 
 # Index path
 path: /data/sources/headlines

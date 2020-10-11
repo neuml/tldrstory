@@ -77,6 +77,35 @@ class Index(object):
                all([not re.search(pattern, submission.url) for pattern in ignore])
 
     @staticmethod
+    def labels(name, config, result):
+        """
+        Transforms a result into a set of labels. This method will create an aggregate field
+        and normalize the range if set. Otherwise, the raw result is returned.
+
+        Args:
+            name: label name
+            config: label configuration
+            result: classifier results
+
+        Returns:
+            transformed labels and scores
+        """
+
+        # Build aggregate value for a list of fields
+        if "aggregate" in config:
+            score = sum([score for label, score in result if label in config["aggregate"]])
+
+            # Normalize range
+            if "normalize" in config:
+                minscore, maxscore = config["normalize"]
+                score = min(max(0.0, (score - minscore) / (maxscore - minscore)), 1.0)
+
+            return [(name, score)]
+
+        # Return results
+        return result
+
+    @staticmethod
     def embeddings(index, database):
         """
         Builds an embeddings index.
@@ -143,6 +172,9 @@ class Index(object):
                     for name, config in index["labels"].items():
                         # Run classifier
                         result = classifier(submission.title, config["values"])
+
+                        # Transform into labels
+                        result = Index.labels(name, config, result)
 
                         # Build list of labels for text
                         labels.extend([(None, submission.id, name) + x for x in result])
