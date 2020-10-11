@@ -1,6 +1,6 @@
-# tldrstory: AI-powered understanding of headlines and text summaries
+# tldrstory: AI-powered understanding of headlines and story text
 
-tldrstory is a framework for AI-powered understanding of headlines and text summaries related to stories. tldrstory applies zero-shot labeling over the text, which allows dynamically categorizing content. This framework also builds an AI-powered index which allows similarity searching for text.
+tldrstory is a framework for AI-powered understanding of headlines and text content related to stories. tldrstory applies zero-shot labeling over the text, which allows dynamically categorizing content. This framework also builds an AI-powered index that enables text similarity search.
 
 <p align="center">
     <img src="https://raw.githubusercontent.com/neuml/tldrstory/master/demo.gif"/>
@@ -18,6 +18,13 @@ name: string
 ```
 
 Application name
+
+### schedule
+```yaml
+schedule: string
+```
+
+Cron-style string that enables scheduled running of the indexing job. See [this link](https://en.wikipedia.org/wiki/Cron) for more information on cron strings.
 
 ### path
 ```yaml
@@ -73,13 +80,6 @@ path: string
 
 Path to a model index.
 
-### labels
-```yaml
-labels: list
-```
-
-Reads a list of labels used in the indexing process.
-
 ## Application
 
 The default application is powered by Streamlit and driven by a YAML configuration file. The configuration file sets the application name, API endpoint for pulling content, and component configuration. A custom Streamlit application or any other application can be used in place of this to pull content from the API endpoint directly.
@@ -127,7 +127,7 @@ chart.name: Chart name
 chart.x: Chart x-axis column
 chart.y: Chart y-axis column
 chart.scale: Color scale for list of colors
-chart.color: List of colors
+chart.colors: List of colors
 ```
 
 Allows configuration of a scatter plot that graphs two label points. This chart can be used to plot and apply coloring to applied labels.
