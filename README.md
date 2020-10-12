@@ -1,12 +1,29 @@
 # tldrstory: AI-powered understanding of headlines and story text
 
-tldrstory is a framework for AI-powered understanding of headlines and text content related to stories. tldrstory applies zero-shot labeling over the text, which allows dynamically categorizing content. This framework also builds an AI-powered index that enables text similarity search.
+tldrstory is a framework for AI-powered understanding of headlines and text content related to stories. tldrstory applies zero-shot labeling over text, which allows dynamically categorizing content. This framework also builds a txtai index that enables text similarity search. A customizable Streamlit application and FastAPI backend service allows users to review and analyze the data processed.
+
+## Examples
+
+The following links are example applications built with tldrstory.
+
+- [Election 2020](https://tldrstory.com/election-2020) [(Configuration files)](https://github.com/neuml/tldrstory/tree/master/apps)
 
 <p align="center">
     <img src="https://raw.githubusercontent.com/neuml/tldrstory/master/demo.gif"/>
 </p>
 
-Configuration options for all components shown below.
+## Installation
+The easiest way to install is via pip and PyPI
+
+    pip install tldrstory
+
+You can also install tldrstory directly from GitHub. Using a Python Virtual Environment is recommended.
+
+    pip install git+https://github.com/neuml/tldrstory
+
+Python 3.6+ is supported
+
+Check out [troubleshooting link](https://github.com/neuml/txtai#troubleshooting) to help resolve environment-specific install issues.
 
 ## Indexing
 

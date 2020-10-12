@@ -17,6 +17,26 @@ class Components(object):
     """
 
     @staticmethod
+    def css():
+        """
+        Sets application wide css
+        """
+
+        style = """
+            <style>
+                a {
+                    text-decoration: none;
+                }
+                a:hover {
+                    text-decoration: underline;
+                }
+            </style>
+        """
+
+        # Apply style
+        st.markdown(style, unsafe_allow_html=True)
+
+    @staticmethod
     def header(name):
         """
         Renders a header.
@@ -252,6 +272,9 @@ class App(object):
 
         # Streamlit layout configuration
         layout = self.index["layout"]
+
+        # Apply global css rules
+        Components.css()
 
         # Application title
         Components.header(self.index["name"])

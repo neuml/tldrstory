@@ -9,12 +9,12 @@ layout:
   description: >
     # Election 2020
 
-    *Disclaimer: This is for demonstration purposes only, users should make up their own mind regarding the accuracy of
-    the results. There will be errors based on the nuances of the English language and personal perception.
-    Sometimes there is no "correct answer".*
+    *Disclaimer: This is for demonstration purposes only. There will be errors based on the nuances of the English language
+    and personal perception. Users should judge the accuracy of results for themselves. All titles and links are displayed as is from Reddit.
+    Users agree to use their own discretion and accept responsibility for the links they click.*
       
     This application categorizes 2020 US Presidential Election Reddit post titles by topic, objectivity and potential bias
-    towards a candidate. Data is pulled via the Reddit API using a series of queries for link posts. In most but not all cases,
+    towards a candidate. Data is pulled via the Reddit API using a series of queries for popular link posts. In many but not all cases,
     the titles of these posts are headlines for news articles.
       
     Reddit post titles are labeled using two categories:

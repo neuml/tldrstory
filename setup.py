@@ -25,7 +25,7 @@ setup(name="tldrstory",
           "croniter>=0.3.34",
           "praw>=7.1.0",
           "requests>=2.24.0",
-          "streamlit>=0.67.1",
+          "streamlit>=0.68.0",
           "txtai>=1.3.0"
       ],
       classifiers=[
