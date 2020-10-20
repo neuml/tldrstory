@@ -47,4 +47,4 @@ path: /data/sources/devices
 # Embeddings index configuration
 embeddings:
   method: transformers
-  path: sentence-transformers/distilbert-multilingual-nli-stsb-quora-ranking
+  path: /data/sources/nlp/distilroberta-base-paraphrase
