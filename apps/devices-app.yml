@@ -1,0 +1,60 @@
+# Application name
+name: Mobile Tech News
+
+# API endpoint
+api: "http://localhost:8000"
+
+# Application layout configuration
+layout:
+  description: >
+    # Mobile Tech News
+
+    *Disclaimer: All titles and links are displayed as is from Reddit. Users agree to use their own discretion and accept
+    responsibility for the links they click.*
+      
+    This application categorizes mobile device Reddit post titles by topic, score and sentiment. Data is pulled
+    via the Reddit API using a series of queries for popular link posts. In many but not all cases, the titles of these posts are
+    headlines for news articles.
+      
+    Reddit post titles are labeled using two categories:
+      
+      - Score - hard data vs rumors
+      - Sentiment - happy vs unhappy
+       
+    ### Tech stack
+      
+    A zero-shot classifier, backed by a large general language model with no labeled data, is used to categorize topics,
+    score and sentiment. Additionally, a txtai index enables ad hoc similarity searches against the data.
+      
+    The following libraries are used:
+
+      - txtai
+      - Transformers
+      - Sentence Transformers
+      - Streamlit
+      - FastAPI
+       
+    [Full source code and configuration](https://github.com/neuml/tldrstory)
+
+  queries:
+    name: Topics
+    values: [Latest, --Search--, Android, iPhone, Laptop, Smart Home, Wearables]
+
+  filters: [Score, Sentiment]
+
+  chart:
+    name: Sentiment
+    x: Sentiment
+    y: Score
+    scale: [0, 4.5, 5.0, 5.5, 10]
+    colors: ["#D32F2F", "#FF9800", "#FFEB3B", "#66BB6A", "#388E3C"]
+
+  table:
+    Score:
+    Sentiment:
+      - [0, 2.0, 😠, ""]
+      - [2.0, 4.0, 🙁,""]
+      - [4.0, 6.0, 😐, ""]
+      - [6.0, 8.0, 😀, ""]
+      - [8.0, 10.0, 🤩, ""]
+ 
