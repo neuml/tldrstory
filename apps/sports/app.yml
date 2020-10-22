@@ -1,0 +1,56 @@
+# Application name
+name: Sports News
+
+# API endpoint
+api: "http://localhost:8000"
+
+# Application layout configuration
+layout:
+  description: >
+    # Sports News
+
+    This application categorizes sports articles by sport, fact score and sentiment. Data is pulled via a series of
+    RSS feeds. 
+      
+    Article titles are labeled using two categories:
+      
+      - Fact - hard data vs rumors
+      - Sentiment - happy vs unhappy
+       
+    ### Tech stack
+      
+    A zero-shot classifier, backed by a large general language model with no labeled data, is used to categorize topics,
+    score and sentiment. Additionally, a txtai index enables ad hoc similarity searches against the data.
+      
+    The following libraries are used:
+
+      - txtai
+      - Transformers
+      - Sentence Transformers
+      - Streamlit
+      - FastAPI
+       
+    [Full source code and configuration](https://github.com/neuml/tldrstory)
+
+  queries:
+    name: Topics
+    values: [Latest, --Search--, Baseball, Basketball, Football, Hockey]
+
+  filters: [Fact, Sentiment]
+
+  chart:
+    name: Sentiment
+    x: Sentiment
+    y: Fact
+    scale: [0, 4.5, 5.0, 5.5, 10]
+    colors: ["#D32F2F", "#FF9800", "#FFEB3B", "#66BB6A", "#388E3C"]
+
+  table:
+    Fact:
+    Sentiment:
+      - [0, 2.0, 😠, ""]
+      - [2.0, 4.0, 🙁,""]
+      - [4.0, 6.0, 😐, ""]
+      - [6.0, 8.0, 😀, ""]
+      - [8.0, 10.0, 🤩, ""]
+ 

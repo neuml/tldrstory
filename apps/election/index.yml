@@ -4,8 +4,8 @@ name: Election 2020
 # Schedule indexing job to run periodically throughout the day
 schedule: "0 6,9,12,15,18,21 * * *"
 
-# API queries
-api:
+# Reddit API queries
+reddit:
   subreddit: all
   sort: top
   time: day
@@ -35,9 +35,9 @@ api:
     - trump climate change
     - trump abortion
 
-  # Ignore links from the following sites
-  ignore: [redd.it, reddit.com, youtube.com, youtu.be, imgur.com, gifs.com, imgflip.com, twitter.com, facebook.com, instagram.com, air.tv, 
-           "(gif|jpg|jpeg|png)$"]
+# Ignore links from the following sites
+ignore: [redd.it, reddit.com, youtube.com, youtu.be, imgur.com, gifs.com, imgflip.com, twitter.com, facebook.com, instagram.com, air.tv, 
+        "(gif|jpg|jpeg|png)$"]
 
 # Text labels
 labels:

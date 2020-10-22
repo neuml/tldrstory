@@ -1,0 +1,37 @@
+# Application name
+name: Sports News
+
+# Schedule indexing job to run periodically throughout the day
+schedule: "0 6,9,12,15,18,21 * * *"
+
+# RSS Feeds
+rss:
+  - http://sports.yahoo.com/mlb/rss.xml
+  - http://sports.yahoo.com/nfl/rss.xml
+  - http://sports.yahoo.com/nba/rss.xml
+  - http://sports.yahoo.com/nhl/rss.xml
+
+# Ignore links from the following sites
+ignore: [redd.it, reddit.com, youtube.com, youtu.be, imgur.com, gifs.com, imgflip.com, twitter.com, facebook.com, instagram.com, air.tv, 
+         "(gif|jpg|jpeg|png)$"]
+
+# Text labels
+labels:
+  fact:
+    aggregate: ["announcement, event, review"]
+    values: ["announcement, event, review", rumor, gossip, speculation]
+
+  sentiment:
+    aggregate: [happy]
+    values: [happy, sad, angry]
+
+  topic:
+    values: [Baseball, Basketball, Football, Hockey]
+
+# Index path
+path: /data/sources/sports
+
+# Embeddings index configuration
+embeddings:
+  method: transformers
+  path: /data/sources/nlp/distilroberta-base-msmarco

@@ -4,8 +4,8 @@ name: Mobile Tech News
 # Schedule indexing job to run periodically throughout the day
 schedule: "0 6,9,12,15,18,21 * * *"
 
-# API queries
-api:
+# Reddit API queries
+reddit:
   subreddit: android+apple+gadgets+iphone+homeautomation+laptops+pcgaming+technology+tech+technews
   sort: top
   time: day
@@ -24,9 +24,9 @@ api:
     - Watch
     - Wearables
 
-  # Ignore links from the following sites
-  ignore: [redd.it, reddit.com, youtube.com, youtu.be, imgur.com, gifs.com, imgflip.com, twitter.com, facebook.com, instagram.com, air.tv, 
-           "(gif|jpg|jpeg|png)$", forms.gle]
+# Ignore links from the following sites
+ignore: [redd.it, reddit.com, youtube.com, youtu.be, imgur.com, gifs.com, imgflip.com, twitter.com, facebook.com, instagram.com, air.tv, 
+         "(gif|jpg|jpeg|png)$"]
 
 # Text labels
 labels:
@@ -47,4 +47,4 @@ path: /data/sources/devices
 # Embeddings index configuration
 embeddings:
   method: transformers
-  path: /data/sources/nlp/distilroberta-base-paraphrase
+  path: /data/sources/nlp/distilroberta-base-msmarco
