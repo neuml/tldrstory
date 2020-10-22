@@ -9,13 +9,19 @@ The following links are example applications built with tldrstory.
 - [Election 2020](https://tldrstory.com/election-2020) [(Configuration files)](https://github.com/neuml/tldrstory/tree/master/apps)
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/neuml/tldrstory/master/election.gif"/>
+    <img src="https://raw.githubusercontent.com/neuml/tldrstory/master/apps/election/demo.gif"/>
 </p>
 
 - [Mobile Tech News](https://tldrstory.com/mobile-tech) [(Configuration files)](https://github.com/neuml/tldrstory/tree/master/apps)
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/neuml/tldrstory/master/devices.gif"/>
+    <img src="https://raw.githubusercontent.com/neuml/tldrstory/master/apps/devices/demo.gif"/>
+</p>
+
+- [Sports News](https://tldrstory.com/sports) [(Configuration files)](https://github.com/neuml/tldrstory/tree/master/apps)
+
+<p align="center">
+    <img src="https://raw.githubusercontent.com/neuml/tldrstory/master/apps/sports/demo.gif"/>
 </p>
 
 ## Installation
