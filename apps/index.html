@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <!-- Set viewport to allow proper scaling on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Chrome Mobile Browser Theme Color -->
+    <meta name="theme-color" content="#303030"/>
+
+    <!-- Description -->
+    <meta name="description" content="tldrstory - AI-powered understanding of headlines and story text">
+
+    <title>tldrstory - AI-powered understanding of headlines and story text</title>
+
+    <link rel="canonical" href="https://tldrstory.com">
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:500%7COswald%7CInter%7CNeucha">
+
+    <!-- FavIcons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://neuml.com/images/apple-touch.png">
+    <link rel="shortcut icon" href="https://neuml.com/images/favicon.ico"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="https://neuml.com/images/favicon-16x16.png"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="https://neuml.com/images/favicon-32x32.png"/>
+    <link rel="icon" type="image/png" sizes="64x64" href="https://neuml.com/images/favicon-64x64.png"/>
+    <link rel="icon" type="image/png" sizes="128x128" href="https://neuml.com/images/favicon-128x128.png"/>
+    <link rel="icon" type="image/png" sizes="512x512" href="https://neuml.com/images/favicon-512x512.png"/>
+
+</head>
+
+<style>
+    body {
+        font-family: "Inter";
+    }
+
+    h3 {
+        font-family: "Oswald";
+        font-size: 30px;
+    }
+
+    h6 {
+        font-family: "Inter";
+    }
+
+    .blue,.hover-blue:hover {
+        color:#fff!important;background-color:#03a9f4!important;
+    }
+
+    .green,.hover-green:hover {
+        color:#fff!important;background-color:#00e676!important;
+    }
+
+    .orange,.hover-blue:hover {
+        color:#fff!important;background-color:#ff7043!important;
+    }
+
+    .footer {
+        padding: 0.01em 8px;
+    }
+
+    .section {
+        font-size: 16px;
+    }
+
+    .image-link {
+        width: 24px;
+        height: 24px;
+        margin-left: 10px;
+    }
+
+    .project-image {
+        padding-bottom: 10px;
+        width: 65%;
+    }
+</style>
+
+<body>
+
+<div class="w3-container blue section">
+    <div class="w3-row">
+        <h3 class="w3-center">tldrstory</h3>
+    </div>
+</div>
+
+<div class="w3-container w3-white section">
+    <div class="w3-row">
+        <div class="w3-full w3-container w3-left">
+            <p>
+                tldrstory is a framework for AI-powered understanding of headlines and text content related to stories. tldrstory applies
+                zero-shot labeling over text, which allows dynamically categorizing content. This framework also builds a txtai index that
+                enables text similarity search. A customizable Streamlit application and FastAPI backend service allows users to review and
+                analyze the data processed.
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="w3-container orange section">
+    <div class="w3-row">
+        <h3 class="w3-center">Applications</h3>
+    </div>
+</div>
+
+<div class="w3-container w3-white section">
+    <div class="w3-row">
+        <h3 class="w3-center">Election 2020</h3>
+        <div class="w3-half w3-container w3-center">
+            <a target="_blank" href="https://tldrstory.com/election-2020">
+                <img class="project-image" alt="Election 2020" src="election/demo.gif"/>
+            </a>
+        </div>
+        <div class="w3-half w3-container">
+            <p>
+                This application categorizes 2020 US Presidential Election Reddit post titles by topic, objectivity and potential bias
+                towards a candidate. Data is pulled via the Reddit API using a series of queries for popular link posts. In many but not all cases,
+                the titles of these posts are headlines for news articles.
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="w3-container w3-light-gray section">
+    <div class="w3-row">
+        <h3 class="w3-center">Mobile Tech News</h3>
+        <div class="w3-half w3-container w3-center">
+            <a target="_blank" href="https://tldrstory.com/mobile-tech">
+                <img class="project-image" alt="Mobile Tech" src="devices/demo.gif"/>
+            </a>
+        </div>
+        <div class="w3-half w3-container">
+            <p>
+                This application categorizes mobile device Reddit post titles by topic, score and sentiment. Data is pulled
+                via the Reddit API using a series of queries for popular link posts. In many but not all cases, the titles of these posts are
+                headlines for news articles.
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="w3-container w3-white section">
+    <div class="w3-row">
+        <h3 class="w3-center">Sports News</h3>
+        <div class="w3-half w3-container w3-center">
+            <a target="_blank" href="https://tldrstory.com/sports">
+                <img class="project-image" alt="Sports" src="sports/demo.gif"/>
+            </a>
+        </div>
+        <div class="w3-half w3-container">
+            <p>
+                This application categorizes sports articles by sport, fact score and sentiment. Data is pulled via a series of RSS feeds.
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="w3-container green section">
+    <div class="w3-row w3-center">
+        <div class="w3-container w3-left footer">
+            <p class="w3-left">Created by <a href="https://neuml.com">NeuML</a></p>
+        </div>
+        <div class="w3-container w3-right w3-right-align footer">
+            <h6>
+                <a target="_blank" href="https://github.com/neuml/tldrstory"><img class="image-link" alt="github" src="https://neuml.com/images/gh.png"/></a>
+            </h6>
+        </div>
+    </div>
+</div>
+
+</body>
