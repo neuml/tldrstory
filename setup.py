@@ -5,7 +5,7 @@ with open("README.md", "r") as f:
     DESCRIPTION = f.read()
 
 setup(name="tldrstory",
-      version="1.0.1",
+      version="1.1.0",
       author="NeuML",
       description="AI-powered understanding of headlines and story text",
       long_description=DESCRIPTION,
@@ -23,6 +23,7 @@ setup(name="tldrstory",
       python_requires=">=3.6",
       install_requires=[
           "croniter>=0.3.34",
+          "feedparser>=6.0.1",
           "praw>=7.1.0",
           "requests>=2.24.0",
           "streamlit>=0.68.0",
