@@ -2,6 +2,8 @@
 
 tldrstory is a framework for AI-powered understanding of headlines and text content related to stories. tldrstory applies zero-shot labeling over text, which allows dynamically categorizing content. This framework also builds a txtai index that enables text similarity search. A customizable Streamlit application and FastAPI backend service allows users to review and analyze the data processed.
 
+tldrstory has a corresponding [Medium article](https://towardsdatascience.com/tldrstory-ai-powered-understanding-of-headlines-and-story-text-fc86abd702fc) that covers the concepts in this README and more. Check it out!
+
 ## Examples
 
 The following links are example applications built with tldrstory. These demos can also be found on https://tldrstory.com
@@ -47,42 +49,93 @@ Once installed, an application must be configured to run. A tldrstory applicatio
 
 This section will show how to start the "Sports News" application.
 
-1. Download the folder https://github.com/neuml/tldrstory/tree/master/apps/sports locally to sports.
+1. Download the “Sports News” application configuration.
 
-2. The default configuration uses a sentence-transformers model not currently on the Hugging Face model hub. For ease of install,
-the setting embeddings.path can be changed to "sentence-transformers/bert-base-nli-mean-tokens" as shown below.
+```bash
+mkdir sports
 
-```yaml
-# Embeddings index configuration
-embeddings:
-  method: transformers
-  path: sentence-transformers/bert-base-nli-mean-tokens
+wget https://raw.githubusercontent.com/neuml/tldrstory/master/apps/sports/app.yml -O sports/app.yml
+
+wget https://raw.githubusercontent.com/neuml/tldrstory/master/apps/sports/index-simple.yml -O sports/index.yml
+
+wget https://raw.githubusercontent.com/neuml/tldrstory/master/src/python/tldrstory/app.py -O sports/app.py
 ```
 
-3. Start the indexing process:
-
-_Note_: The default configuration is on a schedule. The line in index.yml beginning with schedule can be removed to run immediately.
+2. Start the indexing process.
 
 ```bash
 python -m tldrstory.index sports/index.yml
 ```
 
-4. Start the API process:
+3. Start the API process.
 
 ```bash
 INDEX_SETTINGS=sports/index.yml API_CLASS=tldrstory.api.API uvicorn "txtai.api:app"
 ```
 
-5. Start Streamlit:
-
-$SITE_PACKAGES refers to the actual install directory of tldrstory. For example, if you have a virtual env at /env/python, you need
-to find the site-packages directory, /env/python/lib/python3.8/site-packages/ in this case.
+4. Start Streamlit.
 
 ```bash
-streamlit run $SITE_PACKAGES/tldrstory/app.py sports/app.yml "Sports" "🏆"
+streamlit run sports/app.py sports/app.yml "Sports" "🏆"
 ```
 
-6. Open a web browser and go to http://localhost:8501
+5. Open a web browser and go to http://localhost:8501
+
+## Custom Sources
+Out of the box, tldrstory supports reading data from RSS and the Reddit API. Additional data sources can be defined and configured.
+
+The following shows an example custom data source definition. [neuspo](https://neuspo.com) is a real-time sports event and news application.
+This data source loads 4 pre-defined entries into the articles database.
+
+```python
+from tldrstory.source.source import Source
+
+class Neuspo(Source):
+    """
+    Articles have the following schema:
+        uid - unique id
+        source - source name
+        date - article date
+        title - article title
+        url - reference url for data
+        entry - entry date
+    """
+
+    def run(self):
+        # List of articles created
+        articles = []
+
+        articles.append(self.article("0", "Neuspo", self.now(), "Eagles defeat the Giants 22 - 21", 
+                                     "https://neuspo.com/stream/34952e3919d685982c17735018b0197f", self.now()))
+
+        articles.append(self.article("1", "Neuspo", self.now(), "Giants lose to the Eagles 22 - 21", 
+                                     "https://t.co/e9FFgo0wgR?amp=1", self.now()))
+
+        articles.append(self.article("2", "Neuspo", self.now(), "Rays beat Dodgers 6 to 4", 
+                                     "https://neuspo.com/stream/6cb820b3ebadc086aa36b5cc4a0f575d", self.now()))
+
+        articles.append(self.article("3", "Neuspo", self.now(), "Dodgers drop Game 2, 6-4", 
+                                     "https://t.co/1hEQAShVnP?amp=1", self.now()))
+
+        return articles
+```
+
+Let’s re-run the steps above using neuspo as the data source. First remove the sports/data directory, to ensure we create a fresh database. We can then download the gist above into the sports directory.
+
+```bash
+# Delete the sports/data directory before running
+
+wget https://gist.githubusercontent.com/davidmezzetti/9a6064d9a741acb89bd46eba9f906c26/raw/7058e97da82571005b2654b4ab908f25b9a04fe2/neuspo.py -O sports/neuspo.py
+```
+
+Edit sports/index.yml and remove the rss section. Replace it with the following.
+
+```yaml
+# Custom data source for neuspo
+source: sports.neuspo.Neuspo
+```
+
+Now re-run steps 2–4 from the [instructions above](#configurating-an-application).
 
 ## Parameter Reference
 The following sections define configuration parameters for each process that is part of a tldrstory application.
