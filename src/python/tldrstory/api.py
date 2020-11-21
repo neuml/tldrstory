@@ -59,7 +59,7 @@ class API(txtai.api.API):
         if "filters" in request.query_params:
             filters = request.query_params["filters"].split(":")
 
-        database = sqlite3.connect(os.path.join(self.index["path"], "articles.db"))
+        database = sqlite3.connect(os.path.join(self.config["path"], "articles.db"))
         cur = database.cursor()
 
         # Pull results
