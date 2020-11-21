@@ -5,7 +5,7 @@ with open("README.md", "r") as f:
     DESCRIPTION = f.read()
 
 setup(name="tldrstory",
-      version="1.1.0",
+      version="1.2.0",
       author="NeuML",
       description="AI-powered understanding of headlines and story text",
       long_description=DESCRIPTION,
