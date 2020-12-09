@@ -13,7 +13,7 @@ import yaml
 
 from croniter import croniter
 from txtai.embeddings import Embeddings
-from txtai.labels import Labels
+from txtai.pipeline import Labels
 
 from .source.factory import Factory
 from .sqlite import SQLite
