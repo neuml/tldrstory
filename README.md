@@ -56,6 +56,8 @@ mkdir sports
 
 wget https://raw.githubusercontent.com/neuml/tldrstory/master/apps/sports/app.yml -O sports/app.yml
 
+wget https://raw.githubusercontent.com/neuml/tldrstory/master/apps/sports/api.yml -O sports/api.yml
+
 wget https://raw.githubusercontent.com/neuml/tldrstory/master/apps/sports/index-simple.yml -O sports/index.yml
 
 wget https://raw.githubusercontent.com/neuml/tldrstory/master/src/python/tldrstory/app.py -O sports/app.py
