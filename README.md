@@ -70,7 +70,7 @@ python -m tldrstory.index sports/index.yml
 3. Start the API process.
 
 ```bash
-CONFIG=sports/index.yml API_CLASS=tldrstory.api.API uvicorn "txtai.api:app" &
+CONFIG=sports/api.yml API_CLASS=tldrstory.api.API uvicorn "txtai.api:app" &
 ```
 
 4. Start Streamlit.
