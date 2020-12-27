@@ -27,7 +27,7 @@ setup(name="tldrstory",
           "praw>=7.1.0",
           "requests>=2.24.0",
           "streamlit>=0.68.0",
-          "txtai>=1.3.0"
+          "txtai>=1.6.0"
       ],
       classifiers=[
           "License :: OSI Approved :: Apache Software License",
