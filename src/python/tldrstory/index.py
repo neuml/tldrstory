@@ -159,7 +159,7 @@ class Index(object):
                     result = classifier(article.title, config["values"])
 
                     # Transform into labels
-                    result = Index.labels(name, config, result)
+                    result = Index.labels(name, config, [(config["values"][x], score) for x, score in result])
 
                     # Build list of labels for text
                     labels.extend([(None, article.uid, name) + x for x in result])
