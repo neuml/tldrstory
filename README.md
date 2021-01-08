@@ -8,12 +8,6 @@ tldrstory has a corresponding [Medium article](https://towardsdatascience.com/tl
 
 The following links are example applications built with tldrstory. These demos can also be found on https://tldrstory.com
 
-- [Election 2020](https://tldrstory.com/election-2020) [(Configuration files)](https://github.com/neuml/tldrstory/tree/master/apps)
-
-<p align="center">
-    <img src="https://raw.githubusercontent.com/neuml/tldrstory/master/apps/election/demo.gif"/>
-</p>
-
 - [Mobile Tech News](https://tldrstory.com/mobile-tech) [(Configuration files)](https://github.com/neuml/tldrstory/tree/master/apps)
 
 <p align="center">
