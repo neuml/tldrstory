@@ -31,7 +31,7 @@ You can also install tldrstory directly from GitHub. Using a Python Virtual Envi
 
 Python 3.6+ is supported
 
-Check out [troubleshooting link](https://github.com/neuml/txtai#troubleshooting) to help resolve environment-specific install issues.
+See [this link](https://github.com/neuml/txtai#installation) to help resolve environment-specific install issues.
 
 ## Configurating an application
 

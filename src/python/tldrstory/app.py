@@ -231,7 +231,7 @@ class App(object):
             query results
         """
 
-        params = {"q": query, "n": 100, "topic": topic, "filters": ":".join([name.lower() for name, _ in filters])}
+        params = {"query": query, "limit": 100, "topic": topic, "filters": ":".join([name.lower() for name, _ in filters])}
 
         # Encode each filter value as additional parameters
         for name, value in filters:
