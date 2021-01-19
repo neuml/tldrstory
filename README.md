@@ -1,4 +1,12 @@
-# tldrstory: AI-powered understanding of headlines and story text
+<p align="center">
+    <img src="https://raw.githubusercontent.com/neuml/tldrstory/master/logo.png"/>
+</p>
+
+<h3 align="center">
+    <p>AI-powered understanding of headlines and story text</p>
+</h3>
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
 
 tldrstory is a framework for AI-powered understanding of headlines and text content related to stories. tldrstory applies zero-shot labeling over text, which allows dynamically categorizing content. This framework also builds a txtai index that enables text similarity search. A customizable Streamlit application and FastAPI backend service allows users to review and analyze the data processed.
 
@@ -21,6 +29,7 @@ The following links are example applications built with tldrstory. These demos c
 </p>
 
 ## Installation
+
 The easiest way to install is via pip and PyPI
 
     pip install tldrstory
@@ -78,6 +87,7 @@ streamlit run sports/app.py sports/app.yml "Sports" "🏆"
 5. Open a web browser and go to http://localhost:8501
 
 ## Custom Sources
+
 Out of the box, tldrstory supports reading data from RSS and the Reddit API. Additional data sources can be defined and configured.
 
 The following shows an example custom data source definition. [neuspo](https://neuspo.com) is a real-time sports event and news application.
@@ -134,6 +144,7 @@ source: sports.neuspo.Neuspo
 Now re-run steps 2–4 from the [instructions above](#configurating-an-application).
 
 ## Parameter Reference
+
 The following sections define configuration parameters for each process that is part of a tldrstory application.
 
 ## Indexing
