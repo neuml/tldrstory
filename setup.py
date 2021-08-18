@@ -5,7 +5,7 @@ with open("README.md", "r") as f:
     DESCRIPTION = f.read()
 
 setup(name="tldrstory",
-      version="1.3.0",
+      version="1.4.0",
       author="NeuML",
       description="AI-powered understanding of headlines and story text",
       long_description=DESCRIPTION,
@@ -27,7 +27,7 @@ setup(name="tldrstory",
           "praw>=7.1.0",
           "requests>=2.24.0",
           "streamlit>=0.68.0",
-          "txtai>=2.0.0"
+          "txtai[api]>=3.2.0"
       ],
       classifiers=[
           "License :: OSI Approved :: Apache Software License",
