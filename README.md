@@ -3,12 +3,12 @@
 </p>
 
 <h3 align="center">
-    <p>AI-powered understanding of headlines and story text</p>
+    <p>Semantic search for headlines and story text</p>
 </h3>
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 
-tldrstory is a framework for AI-powered understanding of headlines and text content related to stories. tldrstory applies zero-shot labeling over text, which allows dynamically categorizing content. This framework also builds a txtai index that enables text similarity search. A customizable Streamlit application and FastAPI backend service allows users to review and analyze the data processed.
+tldrstory is semantic search application for headlines and text content related to stories. tldrstory applies zero-shot labeling over text, which allows dynamically categorizing content. This framework also builds a txtai index that enables text similarity search. A customizable Streamlit application and FastAPI backend service allows users to review and analyze the data processed.
 
 tldrstory has a corresponding [Medium article](https://towardsdatascience.com/tldrstory-ai-powered-understanding-of-headlines-and-story-text-fc86abd702fc) that covers the concepts in this README and more. Check it out!
 
