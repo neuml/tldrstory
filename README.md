@@ -14,15 +14,15 @@ tldrstory has a corresponding [Medium article](https://towardsdatascience.com/tl
 
 ## Examples
 
-The following links are example applications built with tldrstory. These demos can also be found on https://tldrstory.com
+The following links are example applications built with tldrstory.
 
-- [Mobile Tech News](https://tldrstory.com/mobile-tech) [(Configuration files)](https://github.com/neuml/tldrstory/tree/master/apps)
+- [Mobile Tech News](https://github.com/neuml/tldrstory/tree/master/apps/devices)
 
 <p align="center">
     <img src="https://raw.githubusercontent.com/neuml/tldrstory/master/apps/devices/demo.gif"/>
 </p>
 
-- [Sports News](https://tldrstory.com/sports) [(Configuration files)](https://github.com/neuml/tldrstory/tree/master/apps)
+- [Sports News](https://github.com/neuml/tldrstory/tree/master/apps/sports)
 
 <p align="center">
     <img src="https://raw.githubusercontent.com/neuml/tldrstory/master/apps/sports/demo.gif"/>
