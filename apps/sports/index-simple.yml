@@ -28,7 +28,7 @@ labels:
     values: [Baseball, Basketball, Football, Hockey]
 
 # Index path
-path: sports/data
+path: /data/sources/sports
 
 # Embeddings index configuration
 embeddings:
