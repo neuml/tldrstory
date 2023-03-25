@@ -320,7 +320,7 @@ def create(index):
 
 # Set page title and icon
 if len(sys.argv) > 3:
-    st.beta_set_page_config(sys.argv[2], sys.argv[3], "centered", initial_sidebar_state="expanded")
+    st.set_page_config(sys.argv[2], sys.argv[3], "centered", initial_sidebar_state="expanded")
 
 # Create the application
 app = create(sys.argv[1])
