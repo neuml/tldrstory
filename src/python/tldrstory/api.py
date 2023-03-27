@@ -39,7 +39,7 @@ class API(txtai.api.API):
                                "(SELECT value FROM labels WHERE article=a.id AND category = 'topic' AND name=?) >= 0.5 " +
                                "ORDER BY date DESC LIMIT 100", [query]).fetchall()
 
-        return [(row["id"], row["score"]) for row in super().search(query, request)]
+        return [(row["id"], row["score"]) for row in super().search(query, request=request)]
 
     def search(self, query, request):
         """
