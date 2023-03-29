@@ -7,7 +7,7 @@ with open("README.md", "r") as f:
 setup(name="tldrstory",
       version="1.4.0",
       author="NeuML",
-      description="AI-powered understanding of headlines and story text",
+      description="Semantic search for headlines and story text",
       long_description=DESCRIPTION,
       long_description_content_type="text/markdown",
       url="https://github.com/neuml/tldrstory",
