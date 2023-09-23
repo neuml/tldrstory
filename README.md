@@ -2,9 +2,9 @@
     <img src="https://raw.githubusercontent.com/neuml/tldrstory/master/logo.png"/>
 </p>
 
-<h3 align="center">
-    <p>Semantic search for headlines and story text</p>
-</h3>
+<p align="center">
+    <b>Semantic search for headlines and story text</b>
+</p>
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 
