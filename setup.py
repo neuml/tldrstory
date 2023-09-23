@@ -5,7 +5,7 @@ with open("README.md", "r") as f:
     DESCRIPTION = f.read()
 
 setup(name="tldrstory",
-      version="1.4.0",
+      version="1.5.0",
       author="NeuML",
       description="Semantic search for headlines and story text",
       long_description=DESCRIPTION,
@@ -20,7 +20,7 @@ setup(name="tldrstory",
       packages=find_packages(where="src/python"),
       package_dir={"": "src/python"},
       keywords="search embedding machine-learning nlp",
-      python_requires=">=3.6",
+      python_requires=">=3.8",
       install_requires=[
           "croniter>=0.3.34",
           "feedparser>=6.0.1",
